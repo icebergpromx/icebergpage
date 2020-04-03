@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es" ng-app="cv19-app">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="resources/info.png">
+
+        <link rel="stylesheet" href="css/mainStyle.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+
+    <title>Mexcovid</title>
+</head>
+
+<body ng-controller="counterController" ng-init="getData()">
+
+    <div style="text-align: center;">
+        <h1 class="BLUE_TEXT_BOLD">
+           <a href="/mexcovid" style="color:#5bc0d6">Mexcovid</a>
+        </h1>
+    </div>
+
+
+    <div style="text-align: center;">
+        <p class="BLUE_TEXT_LIGTH p-2" >Es una plataforma que informa en tiempo real sobre el estado del COVID-19 en la república Mexicana</p>
+        <!--<p style="text-align:center;color:#F50;font-weight:700;">Los datos están siendo actualizados.</p> -->
+
+       
+
+    
+    </div>
+
+   <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-info waves-effect mt-4" href="busqueda-estado" style="width: 300px;height: 55px; border-radius: 10px;">Búsqueda por estados de la república</a>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="infoUpdate col-10 col-sm-5 mt-4 mb-2">
+            <p> Última comprobación:{{fechaActualizacion}}</p>
+        </div>
+    </div>
+    <!--
+    <div class="d-flex justify-content-center">
+        <div class="infoFase">
+            <p> FASE 2</p>
+        </div>
+    </div>
+    -->
+   
+    
+
+    <div class="row center">
+        
+        <div class="col-6 col-md-3 py-2 mb-2">
+            <!-- Card Narrower -->
+            <div class="box card-cascade narrower">
+                <!-- Card image -->
+                 <div class="d-flex justify-content-center">
+                    <div class="view view-cascade overlay  col-sm-6 mt-3" style="padding:0%;width:100%;" >
+                    <img class="card-img-top"  src="img/Infecteds.png" style="width:140px; height:140px;" alt="Card image cap">
+                </div>
+                </div>
+                <!-- Card content -->
+                <div class="card-body card-body-cascade">
+                    <!-- Label -->
+                    <h3 class="pink-text pb-2 pt-1">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        {{confirmedCases}}</h3>
+                    <!-- Title -->
+                    <h4 class="font-weight-bold card-title"></h4>
+                    <h4 class="font-weight-bold card-title" style="font-size: 18px !important;" >Casos confirmados</h4>
+                    <!-- Text -->
+                    <p class="card-text" style="font-size:10px">Datos de la Secretaría de Salud</p>
+                </div>
+            </div>
+            <!--Card narrower-->
+
+        </div>
+        <div class="col-6 col-md-3 py-2">
+            <!-- Card Narrower -->
+            <div class="box card-cascade narrower">
+                <!-- Card image -->
+               <div class="d-flex justify-content-center">
+                <div class="view view-cascade overlay  col-sm-6 mt-3" style="padding:0%;width:100%;">
+                    <img class="card-img-top" src="img/down.png" style="width:140px;height:140px;" alt="Card image cap">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                </div>
+                <!-- Card content -->
+                <div class="card-body card-body-cascade">
+
+                    <!-- Label -->
+                    <h3 class="whiteIconNegative pb-2 pt-1"> 
+                        <i class="far fa-check-circle"></i>
+                        {{negativeCases}}</h3>
+                    <!-- Title -->
+                    <h4 class="font-weight-bold card-title" style="font-size: 18px !important;">Casos negativos</h4>
+                    <!-- Text -->
+                    <p class="card-text" style="font-size:10px">Datos de la Secretaría de Salud</p>
+                </div>
+            </div>
+            <!--Card narrower-->
+        </div>
+    </div>
+
+    <div class="row center">
+        
+        <div class="col-6 col-md-3 py-2">
+            <!-- Card Narrower -->
+            <div class="box card-cascade narrower">
+                <!-- Card image -->
+                <div class="d-flex justify-content-center">
+                    <div class="view view-cascade overlay col-sm-6 mt-3" style="padding:0%;width:100%;">
+                        <img class="card-img-top" src="img/deads.png" style="width:140px; height:140px;"  alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    </div>
+                <!-- Card content -->
+                <div class="card-body card-body-cascade">
+                    <!-- Label -->
+                    <h3 class="blackIconDeaths pb-2 pt-1">
+                        <i class="fas fa-heart-broken"></i>
+                        {{deaths}}</h3>
+                    <!-- Title -->
+                    <h4 class="font-weight-bold card-title"></h4>
+                    <h4 class="font-weight-bold card-title" style="font-size: 18px !important;">Defunciones</h4>
+                    <!-- Text -->
+                    <p class="card-text" style="font-size:10px">Datos de la Secretaría de Salud</p>
+                </div>
+            </div>
+            <!--Card narrower-->
+
+        </div>
+
+
+        <div class="col-6 col-md-3 py-2">
+            <!-- Card Narrower -->
+            <div class="box card-cascade narrower">
+                <!-- Card image -->
+                <div class="d-flex justify-content-center">
+                    <div class="view view-cascade overlay  col-sm-6 mt-3" style="padding:0%;width:100%;">
+                        <img class="card-img-top" src="img/sanados.png" style="width:140px; height:140px;" alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    </div>
+                <!-- Card content -->
+                <div class="card-body card-body-cascade">
+
+                    <!-- Label -->
+                    <h3 class="greenIconRecover pb-2 pt-1">
+                        <i class="far fa-check-circle"></i>
+                        {{recoveredLifes}}</h3>
+                    <!-- Title -->
+                    <h4 class="font-weight-bold card-title" style="font-size: 18px !important;" >Recuperados</h4>
+                    <!-- Text -->
+                    <p class="card-text" style="font-size:10px">Datos de la Secretaría de Salud</p>
+                  
+                  <!--
+                    <div style="text-align: center;">
+                        <a class="btn aqua-gradient" target="_blank" href="https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449?idiom=es" style="border-radius: 50px;">Más información</a>
+                    </div>
+                  -->
+                    
+                </div>
+            </div>
+            <!--Card narrower-->
+        </div>
+    </div>
+
+
+    <!--Nuevo-->
+ <div class="row justify-content-center mt-4">
+        <div>
+            <p class="BLUE_TEXT_LIGTH p-4" style="text-align: center;">¿Te podemos dar un tip para no ser parte de estas cifras?</p> 
+        </div>
+        <div class="col-12"></div>
+       <div>
+            <button class="btn aqua-gradient mt-3" style=" width: 300px; border-radius: 50px;" ng-click="darConsejo()">Sí, por favor</button>
+
+       </div>
+    </div>
+
+    <div class="row justify-content-center mt-5  mb-4">
+        <p class="card-text" style="color: rgb(109, 109, 109); text-align: center;">La información presentada es obtenida directamente de la Secretaría de Salud  de los Estados Unidos Mexicanos diariamente.</p>
+        <div class="col-12"></div>
+        <a type="button" href="https://www.gob.mx/salud"  target="_blank" class="btn btn-outline-info btn-rounded waves-effect mt-2" style="border-radius: 50px;">Más información oficial</a>
+    
+    </div>
+      
+       
+        
+  
+
+
+
+
+ <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright  footerColor text-center py-3">
+       &nbsp; <a href="icebergpro.mx">Iceberg PRO</a>  © 2020 Consultora de Software para México <i class="fas fa-heart"></i>
+        
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/ajsIndicador.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+</body>
+
+</html>

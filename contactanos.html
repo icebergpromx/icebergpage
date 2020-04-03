@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es" ng-app="contact-app">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO -->
+
+    <meta name="description" content="Empresa Digital">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:type" content="Consultoría y desarrollo de software | Achikuali">
+    <meta name="twitter:site" content="@AchikualiInc">
+    <meta name="twitter:creator" content="@AchikualiInc">
+    <script
+        type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/icebergpro.mx\/","name":"Consultoría y desarrollo de software | Iceberg PRO","potentialAction":{"@type":"SearchAction","target":"https:\/\/icebergpro.mx\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script
+        type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/icebergpro.mx\/","sameAs":["https:\/\/www.facebook.com\/icebergpro-consultancy\/","https:\/\/www.instagram.com\/icebergpro-consultancy\/"],"@id":"https:\/\/icebergpro.mx\\/#organization","name":"Iceberg PRO - Consultora de Software"}</script>
+
+
+    <!-- END SEO -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>Consultoría y desarrollo de software | Iceberg PRO </title>
+</head>
+
+<body ng-controller="controllerMessage">
+
+    <!-- Header -->
+    <header>
+        <!-- Navbar -->
+        
+                <a class="navbar-brand" href="http://icebergpro.mx/">
+                    <img src="img/SinFondo.png">
+                </a>
+
+             
+
+                     
+        
+        <!-- /Navbar -->
+
+    </header>
+    <!-- /Header -->
+
+    <!-- Start landing page caption -->
+
+    <div class="caption center-block ">
+
+
+        <div class="col col-md-8" id="mainWord">
+            
+          
+                <div ng-bind-html="mensaje"></div>    
+
+        </div>
+
+    </div><!-- /End home section page -->
+
+
+    <div id="about">
+        <!-- Start about section -->
+
+        <div class="jumbotron">
+            <!-- Start jumbotron section -->
+            <div class="mb-4">
+
+                <h3 class="heading" style="color: #4B8998;">Contáctanos</h3>
+            </div>
+
+            <div class="row justify-content-center" style="margin-bottom:20px;">
+
+
+                <!-- Material form contact -->
+                <div class="card mb-4 m-4">
+
+                    <h5 class="card-header  white-text text-center py-4" style="background-color: #4B8998;">
+                        <strong>Te contactaremos en seguida</strong>
+                    </h5>
+
+                    <!--Card content-->
+                    <div class="card-body px-lg-5 pt-0">
+
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;" action="#!">
+
+                            <!-- Name -->
+                            <div class="md-form mt-3">
+                                <input type="text" id="materialContactFormName" ng-model="cliente.nombre" class="form-control">
+                                <label for="materialContactFormName">Nombre completo</label>
+                            </div>
+
+                            <!-- E-mail -->
+                            <div class="md-form">
+                                <input type="email" id="materialContactFormEmail" ng-model="cliente.correo" class="form-control">
+                                <label for="materialContactFormEmail">Correo electrónico</label>
+                            </div>
+
+                            <!-- Subject -->
+                            <label>Servicio buscado</label>
+                            <select class="browser-default custom-select mb-4" ng-model="cliente.interes">
+                                <option value="" disabled>Selecciona una opción</option>
+                                <option value="1" selected>Desarrollo web</option>
+                                <option value="2">Desarrollo de aplicaciones moviles</option>
+                                <option value="3">Capacitaciones</option>
+                                <option value="4">Consultoría TI general</option>
+                            </select>
+                            <!--Message-->
+                            <div class="md-form">
+                                <textarea id="materialContactFormMessage" ng-model="cliente.mensaje" class="form-control md-textarea"
+                                    rows="3"></textarea>
+                                <label for="materialContactFormMessage">Explica brevemente lo que necesitas</label>
+                            </div>
+                                <!-- SEGURIDAD-->
+                            <div class="custom-control mb-4">
+                                <label class="label" style="font-weight: 500; font-size: 10px;">*Todos tus datos enviados están altamente protegidos por nuestro equipo de Ciberseguridad</label>
+                            </div>
+
+                            <!-- Send button -->
+                            <input class="buttonContratar" ng-click="putEmploy(cliente)" value="Enviar" type="button" ></input>
+
+                        </form>
+                        <!-- Form -->
+
+                    </div>
+
+                </div>
+                <!-- Material form contact -->
+
+            </div><!-- End jumbotron section -->
+        </div> <!-- End about section -->
+
+
+
+
+        <!-- Footer -->
+        <footer id="footer" class="pb-4 pt-4 mb-15">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12 col-lg col-md-12  text-center">
+                        <img src="img/logo.png" id="logoCompact">
+                    </div>
+
+                    <div class="col-12 col-lg col-md-12 text-center pl-0 pr-0">
+                        <h5 class="heading" style="color: #4B8998; ">Más información</h5>
+                        <div class="footerSection">
+                            <a href="#" class="list-group-item" style="color: #4B8998; ">Preguntas Frecuentes</a>
+
+                            <a href="#" class="list-group-item" style="color: #4B8998; ">Contáctanos</a>
+                            <a href="/terminos-y-condiciones" class="list-group-item" style="color: #4B8998; ">Términos
+                                y Condiciones</a>
+                        </div>
+                        <div style="margin: 10px;">
+                            <button type="button" class="buttonContratar">Contratanos</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12  col-lg md-12 text-center pl-0 pr-0 pt-3">
+                        <h5 class="heading" style="color: #4B8998; ">Ubicación</h5>
+                        <p style="color: #4B8998; ">Cuernavaca Morelos, México</p>
+                    </div>
+
+                    <div class="col-12  col-lg md-12 text-center pl-0 pr-0 ">
+                        <h5 class="heading" style="color: #4B8998; ">Atención a clientes</h5>
+                        <a style="color: #4B8998; " href="mailto:contacto@icebergpro.mx">Correo electrónico:
+                            contacto@icebergpro.mx</a>
+                    </div>
+
+
+                    <div class="col-12  col-lg md-12 text-center ">
+                        <h5 class="heading" style="color: #4B8998; ">Iceberg PRO Consultora de Software</h5>
+                        <p class="littleP" style="color: #4B8998;">
+                            Especialistas en desarrollo de software enfocados en
+                            potenciar la efectividad y productividad de nuestros clientes
+                            mediante las soluciones y buenas prácticas de TI que ofrecemos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    </div>
+
+
+    </footer>
+    <section id="footer-bottom">
+        <br>
+        Iceberg PRO&copy 2020 | Consultora de Software
+    </section>
+    <!-- /Footer -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+
+    <!-- mdn bootstrap-->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+
+    <!-- JS MDN -->
+    <!-- JQuery -->
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-sanitize.js"></script>
+<!--Sweet alert-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="/js/ajsConectMessage.js"></script>
+</body>
+
+</html>

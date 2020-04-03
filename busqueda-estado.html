@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es" ng-app="cv19-app">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="resources/info.png">
+
+        <link rel="stylesheet" href="css/mainStyle.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+
+    <title>Mexcovid</title>
+</head>
+
+<body ng-controller="estadosController" ng-init="getEstados()">
+
+    <div style="text-align: center;">
+        <h1 class="BLUE_TEXT_BOLD">
+           <a href="/mexcovid" style="color:#5bc0d6" >Mexcovid</a>
+        </h1>
+    </div>
+
+
+    <div style="text-align: center;">
+        <p class="BLUE_TEXT_LIGTH">Es una plataforma que informa en tiempo real sobre el estado del COVID-19 en la república Mexicana</p>
+      <!-- <p style="text-align:center;color:#F50;font-weight:700;">Los datos están siendo actualizados.</p> -->
+
+       
+
+    
+    </div>
+
+    <div class="row" style="width: 100%; padding: 30px; justify-content: center;">
+        <div class="infoUpdate">
+            <p>Última comprobación: {{fechaActualizacion}}</p>
+        </div>
+    </div>
+   
+    
+
+   <div class="row" style="justify-content: center;">
+       
+       <div class="col-md-6 col-md-offset-2">
+        <div>
+            <td colspan="3">
+                     
+              <p style="text-align:center;color:#89BAC1;">La búsqueda es sensible a los acentos</p>
+              <input type="text" class="form-control" placeholder="Busca un estado por su nombre" ng-model="estadoX">
+            </td>
+          </div>
+        <table class="table table-responsive table-borderless">
+            
+            <thead>
+              <tr>
+                <th scope="col" style="font-weight: 700; font-size:20px;">Estado</th>
+                <th scope="col" style="font-weight: 700; font-size:20px;">Confirmados</th>
+                <th scope="col" style="font-weight: 700; font-size:20px;">Negativos</th>
+                <th scope="col" style="font-weight: 700; font-size:20px;">Sospechosos</th>
+                <th scope="col" style="font-weight: 700; font-size:20px;">Defunciones</th>
+              </tr>
+              
+            </thead>
+            <tbody>
+              <tr ng-repeat="estado in estados | filter:estadoX | orderBy:'estado'" class="bottomBorder">
+                <td>{{estado.estado}}</td>
+                <td>{{estado.confirmados}}</td>
+                <td>{{estado.negativos}}</td>
+                <td>{{estado.sospechosos}}</td>
+                <td>{{estado.defunciones}}</td>
+              </tr>
+            </tbody>
+          </table>
+       </div>
+   </div>
+
+
+    
+
+        <div style="text-align: center;">
+            <p class="BLUE_TEXT_LIGTH">¿Te podemos dar un tip para no ser parte de estas cifras?</p>
+        </div>
+        <div style="text-align: center;">
+            <div style="margin-bottom : 10em;">
+                <button class="btn aqua-gradient mt-4" style=" width: 300px; border-radius: 50px;" ng-click="darConsejo()">Sí, por favor</button>
+            </div>
+
+            <div style="margin-bottom : 10em;">
+                <a class="btn btn-outline-info waves-effect mt-4" href="https://icebergpro.mx/mexcovid" style="width: 150px;height: 40px; border-radius: 10px;">Regresar</a>
+            </div>
+        </div>
+        <div style="height: 150px; text-align: center;padding: 20px; color: rgb(109, 109, 109);">
+            <p class="card-text">La información presentada es obtenida directamente de la Secretaría de Salud  de los Estados Unidos Mexicanos diariamente.</p>
+            <a type="button" href="https://www.gob.mx/salud"  target="_blank" class="btn btn-outline-info btn-rounded waves-effect" style="border-radius: 50px;">Más información oficial</a>
+        </div>
+       
+        
+  
+
+
+
+
+ <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright  footerColor text-center py-3">
+       &nbsp; De Iceberg PRO © 2020 Consultora de Software para México <i class="fas fa-heart"></i>
+        
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/ajsEstados.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+</body>
+
+</html>
